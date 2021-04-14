@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const Passcode = () => {
   return (
     <View style={styles.passcodeContainer}>
-      <Text style={styles.passcodeText}>ENTER PASSCODE</Text>
+      <Text style={styles.passcodeText}>Enter Passcode</Text>
       <View style={styles.passcodeMaskContainer}>
         <View style={styles.passcodeMaskChar} />
         <View style={styles.passcodeMaskChar} />
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     fontFamily: 'Avenir',
     letterSpacing: 4,
+    textTransform: 'uppercase',
   },
   passcodeMaskContainer: {
     height: 50,

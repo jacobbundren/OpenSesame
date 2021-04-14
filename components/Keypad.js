@@ -45,7 +45,7 @@ const Keypad = () => {
           <Text style={styles.keypadNumber}>0</Text>
         </View>
         <View style={styles.keypadButton}>
-          <Text style={styles.keypadDeleteText}>DELETE</Text>
+          <Text style={styles.keypadDeleteText}>Delete</Text>
         </View>
       </View>
     </View>
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     fontWeight: '800',
     letterSpacing: 2,
+    textTransform: 'uppercase',
   },
 });
 
