@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const Keypad = () => {
   return (
@@ -59,24 +59,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#191919',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   keypadRow: {
     display: 'flex',
     flexDirection: 'row',
-    height: '25%',
+    height: '25%'
   },
   keypadButton: {
     width: '33%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   keypadNumber: {
     color: '#fff',
     fontSize: 30,
     fontFamily: 'Avenir',
-    fontWeight: '500',
+    fontWeight: '500'
   },
   keypadDeleteText: {
     color: '#fff',
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     fontWeight: '800',
     letterSpacing: 2,
-    textTransform: 'uppercase',
-  },
+    textTransform: 'uppercase'
+  }
 });
 
 export default Keypad;

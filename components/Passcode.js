@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const Passcode = () => {
   return (
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   passcodeText: {
     color: '#fff',
@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     fontFamily: 'Avenir',
     letterSpacing: 4,
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   passcodeMaskContainer: {
     height: 50,
     width: 250,
     display: 'flex',
     flexDirection: 'row',
-    marginTop: 20,
+    marginTop: 20
   },
   passcodeMaskChar: {
     color: '#fff',
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 20,
     borderColor: '#fff',
-    borderWidth: 1,
-  },
+    borderWidth: 1
+  }
 });
 
 export default Passcode;
