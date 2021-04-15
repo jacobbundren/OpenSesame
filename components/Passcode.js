@@ -1,16 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Passcode = () => {
+const Passcode = (props) => {
+  let passcodeBubbles = [];
+
+  let passcodeAttempt = [];
+
+  for (let char in props.passcode) {
+    passcodeBubbles.push(
+      <View
+        key={char}
+        style={[
+          styles.passcodeMaskChar,
+          true ? styles.passcodeMaskFilled : null
+        ]}
+      />
+    );
+  }
+
   return (
     <View style={styles.passcodeContainer}>
       <Text style={styles.passcodeText}>Enter Passcode</Text>
-      <View style={styles.passcodeMaskContainer}>
-        <View style={styles.passcodeMaskChar} />
-        <View style={styles.passcodeMaskChar} />
-        <View style={styles.passcodeMaskChar} />
-        <View style={styles.passcodeMaskChar} />
-      </View>
+      <View style={styles.passcodeMaskContainer}>{passcodeBubbles}</View>
     </View>
   );
 };
@@ -49,6 +60,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: '#fff',
     borderWidth: 1
+  },
+  passcodeMaskFilled: {
+    backgroundColor: '#fff'
   }
 });
 

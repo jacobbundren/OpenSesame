@@ -3,5 +3,7 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'none',
   noMultiSpaces: true,
-  // noTrailingSpaces: false
+  noTrailingSpaces: false,
+  noIrregularWhitespace: false,
+  objectCurlyNewline: false
 };

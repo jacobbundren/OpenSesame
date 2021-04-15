@@ -1,11 +1,6 @@
 import React from 'react';
 import type { Node } from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import Keypad from './components/Keypad';
 import Passcode from './components/Passcode';
 
@@ -14,10 +9,12 @@ const App: () => Node = () => {
     backgroundColor: '#101010'
   };
 
+  let passcode = '0000';
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'dark-content'} />
-      <Passcode />
+      <Passcode passcode={passcode} />
       <Keypad />
     </SafeAreaView>
   );
