@@ -1,24 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 
 const Button = (props) => {
+  const buttonProps = props.value;
+  const buttonValueStyle = buttonProps.isNum ? styles.keypadNumber : styles.keypadText;
+
 
   const emitValue = () => {
-    return props.value;
+    return buttonProps.val;
   };
 
   return (
-    <TouchableHighlight style={styles.keypadButton} onPress={emitValue()}>
+    <TouchableHighlight style={styles.keypadButton} onPress={emitValue}>
       <View>
-        <Text style={styles.keypadNumber} value={1}>
-          {props.value}
+        <Text style={buttonValueStyle} value={buttonProps.val}>
+          {buttonProps.val}
         </Text>
       </View>
     </TouchableHighlight>
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   keypadButton: {
     width: '33%',
     display: 'flex',
@@ -31,7 +34,7 @@ const styles = {
     fontFamily: 'Avenir',
     fontWeight: '500'
   },
-  keypadDeleteText: {
+  keypadText: {
     color: '#fff',
     fontSize: 16,
     fontFamily: 'Avenir',
@@ -39,6 +42,6 @@ const styles = {
     letterSpacing: 2,
     textTransform: 'uppercase'
   }
-};
+});
 
 export default Button;
