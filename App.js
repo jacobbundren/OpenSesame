@@ -5,17 +5,24 @@ import Keypad from './components/Keypad';
 import Passcode from './components/Passcode';
 
 const App: () => Node = () => {
+  const onButtonPress = (keypress) => {
+    console.log(keypress);
+    passwordGuess.push(keypress);
+  };
+
+  const passwordGuess = [];
+
   const backgroundStyle = {
     backgroundColor: '#101010'
   };
 
-  let passcode = '0000';
+  const passcode = '0000';
 
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'dark-content'} />
       <Passcode passcode={passcode} />
-      <Keypad />
+      <Keypad onButtonPress={onButtonPress} />
     </SafeAreaView>
   );
 };

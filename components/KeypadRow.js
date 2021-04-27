@@ -6,7 +6,14 @@ const KeypadRow = (props) => {
   const row = [];
 
   for (let num in props.numbers) {
-    row.push(<Button value={props.numbers[num]} key={num} style={styles.keypadButton}/>);
+    row.push(
+      <Button
+        value={props.numbers[num]}
+        key={num}
+        style={styles.keypadButton}
+        onButtonPress={props.onButtonPress}
+      />
+    );
   }
 
   return <View style={styles.keypadRow}>{row}</View>;

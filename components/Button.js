@@ -3,15 +3,19 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 
 const Button = (props) => {
   const buttonProps = props.value;
-  const buttonValueStyle = buttonProps.isNum ? styles.keypadNumber : styles.keypadText;
-
+  const buttonValueStyle = buttonProps.isNum
+    ? styles.keypadNumber
+    : styles.keypadText;
 
   const emitValue = () => {
-    return buttonProps.val;
+    props.onButtonPress(buttonProps.val);
   };
 
   return (
-    <TouchableHighlight style={styles.keypadButton} onPress={emitValue}>
+    <TouchableHighlight
+      disabled={buttonProps.val === null}
+      style={styles.keypadButton}
+      onPress={() => emitValue()}>
       <View>
         <Text style={buttonValueStyle} value={buttonProps.val}>
           {buttonProps.val}

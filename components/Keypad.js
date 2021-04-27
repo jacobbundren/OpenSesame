@@ -3,9 +3,6 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import KeypadRow from './KeypadRow';
 
 const Keypad = (props) => {
-  const keypress = (event) => {
-    console.log(event.identifier);
-  };
   return (
     <View style={styles.keypadContainer}>
       <KeypadRow
@@ -14,6 +11,7 @@ const Keypad = (props) => {
           { val: 2, isNum: true },
           { val: 3, isNum: true }
         ]}
+        onButtonPress={props.onButtonPress}
       />
       <KeypadRow
         numbers={[
@@ -21,6 +19,7 @@ const Keypad = (props) => {
           { val: 5, isNum: true },
           { val: 6, isNum: true }
         ]}
+        onButtonPress={props.onButtonPress}
       />
       <KeypadRow
         numbers={[
@@ -28,13 +27,15 @@ const Keypad = (props) => {
           { val: 8, isNum: true },
           { val: 9, isNum: true }
         ]}
+        onButtonPress={props.onButtonPress}
       />
       <KeypadRow
         numbers={[
           { val: null, isNum: false },
           { val: 0, isNum: true },
-          { val: 'Delete', isNum: false },
+          { val: 'Delete', isNum: false }
         ]}
+        onButtonPress={props.onButtonPress}
       />
     </View>
   );
