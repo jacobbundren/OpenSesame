@@ -1,53 +1,42 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import KeypadRow from './KeypadRow';
 
-const Keypad = () => {
+const Keypad = (props) => {
   return (
     <View style={styles.keypadContainer}>
-      <View style={styles.keypadRow}>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>1</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>2</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>3</Text>
-        </View>
-      </View>
-      <View style={styles.keypadRow}>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>4</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>5</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>6</Text>
-        </View>
-      </View>
-      <View style={styles.keypadRow}>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>7</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>8</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>9</Text>
-        </View>
-      </View>
-      <View style={styles.keypadRow}>
-        <View style={styles.keypadButton}>
-          <Text> </Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadNumber}>0</Text>
-        </View>
-        <View style={styles.keypadButton}>
-          <Text style={styles.keypadDeleteText}>Delete</Text>
-        </View>
-      </View>
+      <KeypadRow
+        numbers={[
+          { val: 1, isNum: true },
+          { val: 2, isNum: true },
+          { val: 3, isNum: true }
+        ]}
+        onButtonPress={props.onButtonPress}
+      />
+      <KeypadRow
+        numbers={[
+          { val: 4, isNum: true },
+          { val: 5, isNum: true },
+          { val: 6, isNum: true }
+        ]}
+        onButtonPress={props.onButtonPress}
+      />
+      <KeypadRow
+        numbers={[
+          { val: 7, isNum: true },
+          { val: 8, isNum: true },
+          { val: 9, isNum: true }
+        ]}
+        onButtonPress={props.onButtonPress}
+      />
+      <KeypadRow
+        numbers={[
+          { val: null, isNum: false },
+          { val: 0, isNum: true },
+          { val: 'Delete', isNum: false }
+        ]}
+        onButtonPress={props.onButtonPress}
+      />
     </View>
   );
 };
@@ -59,24 +48,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#191919',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   keypadRow: {
     display: 'flex',
     flexDirection: 'row',
-    height: '25%',
+    height: '25%'
   },
   keypadButton: {
     width: '33%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   keypadNumber: {
     color: '#fff',
     fontSize: 30,
     fontFamily: 'Avenir',
-    fontWeight: '500',
+    fontWeight: '500'
   },
   keypadDeleteText: {
     color: '#fff',
@@ -84,8 +73,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     fontWeight: '800',
     letterSpacing: 2,
-    textTransform: 'uppercase',
-  },
+    textTransform: 'uppercase'
+  }
 });
 
 export default Keypad;
