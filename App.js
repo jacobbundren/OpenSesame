@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Node } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import Keypad from './components/Keypad';
 import Passcode from './components/Passcode';
 
 const App: () => Node = () => {
-  let passcodeGuess = '';
-  let passcode = '0000';
+  const [passcode, setPasscode] = useState('0000');
+  const [passcodeGuess, setPasscodeGuess] = useState('');
 
   const onButtonPress = (keypress) => {
-    console.log(keypress);
-    passcodeGuess += keypress;
-    validate();
+    if (passcodeGuess.length < passcode.length - 1) {
+      setPasscodeGuess(passcodeGuess + keypress);
+    } else {
+      setPasscodeGuess(passcodeGuess + keypress);
+      setTimeout(() => validate(), 50);
+    }
   };
 
   const validate = () => {
-    if (passcodeGuess.length === passcode.length) {
-      console.log(passcodeGuess === passcode);
-      passcodeGuess = '';
-    }
+    setPasscodeGuess('');
   };
 
   const backgroundStyle = {
@@ -28,7 +28,7 @@ const App: () => Node = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'dark-content'} />
-      <Passcode passcode={passcode} />
+      <Passcode passcode={passcode} passcodeGuess={passcodeGuess} />
       <Keypad onButtonPress={onButtonPress} />
     </SafeAreaView>
   );
