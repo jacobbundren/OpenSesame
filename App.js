@@ -13,15 +13,12 @@ const App: () => Node = () => {
       setPasscodeGuess(passcodeGuess + keypress);
     } else {
       setPasscodeGuess(passcodeGuess + keypress);
-      validate();
+      setTimeout(() => validate(), 50);
     }
   };
 
   const validate = () => {
-    // if (passcodeGuess.length === passcode.length) {
-    //   console.log(passcodeGuess);
     setPasscodeGuess('');
-    // }
   };
 
   const backgroundStyle = {
